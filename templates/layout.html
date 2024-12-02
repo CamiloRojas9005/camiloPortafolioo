@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camilo Rojas Ibañez - Portafolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="{{ active_page }}">
+    <nav>
+        <div class="nav-container">
+            <h1>Camilo Rojas Ibañez</h1>
+            <ul class="navigation">
+                <li><a href="{{ url_for('home') }}" class="nav-link {% if active_page == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link {% if active_page == 'about' %}active{% endif %}">About</a></li>
+                <li><a href="{{ url_for('projects') }}" class="nav-link {% if active_page == 'projects' %}active{% endif %}">Projects</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link {% if active_page == 'contact' %}active{% endif %}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="section {% if active_page == 'home' %}active{% endif %}">
+            <div class="section-content">
+                {% block home_content %}
+                
+                {% endblock %}
+            </div>
+        </section>
+        
+        <section id="about" class="section {% if active_page == 'about' %}active{% endif %}">
+            <div class="section-content">
+                {% block about_content %}
+                
+                {% endblock %}
+            </div>
+        </section>
+        
+        <section id="projects" class="section {% if active_page == 'projects' %}active{% endif %}">
+            <div class="section-content">
+                {% block projects_content %}
+                
+                {% endblock %}
+            </div>
+        </section>
+        
+        <section id="contact" class="section {% if active_page == 'contact' %}active{% endif %}">
+            <div class="section-content">
+                {% block contact_content %}
+
+                {% endblock %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
